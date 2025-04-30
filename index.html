@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>马牛逼编程助手 - 您的智能编程伙伴</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            color: #fff;
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .header {
+            margin-bottom: 40px;
+        }
+        
+        .logo {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #ff6b6b, #ff9e9e, #ffb8b8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(255, 107, 107, 0.3);
+        }
+        
+        .slogan {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #e2e2e2;
+        }
+        
+        .features {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .feature {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            width: 300px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #ff9e9e;
+        }
+        
+        .feature p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ff9e9e);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .download-btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff9e9e, #ff6b6b);
+            transition: left 0.5s;
+            z-index: -1;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.4);
+        }
+        
+        .download-btn:hover:before {
+            left: 0;
+        }
+        
+        .footer {
+            margin-top: auto;
+            padding: 20px 0;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* 樱花飘落效果 */
+        .sakura {
+            position: absolute;
+            background: #ffc0cb;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(1px);
+            animation: fall linear infinite;
+        }
+        
+        @keyframes fall {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(100px, 100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* 鼠标环绕樱花效果 */
+        .cursor-sakura {
+            position: absolute;
+            background: #ffc0cb;
+            border-radius: 50%;
+            pointer-events: none;
+            filter: blur(1px);
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="logo">马牛逼编程助手</h1>
+            <p class="slogan">让编程更简单，让创造更高效</p>
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <h3>智能代码补全</h3>
+                <p>基于先进AI技术，全自动编写/修改代码</p>
+            </div>
+            <div class="feature">
+                <h3>多语言支持</h3>
+                <p>支持Python、JavaScript、Java等多种主流编程语言，满足各类开发需求。</p>
+            </div>
+            <div class="feature">
+                <h3>代码优化建议</h3>
+                <p>智能分析代码结构，提供性能优化和最佳实践建议。</p>
+            </div>
+        </div>
+        
+        <a href="/download" class="download-btn">立即下载</a>
+        
+        <div class="footer">
+            <p>© 2025 马牛逼编程助手 - 您的智能编程伙伴</p>
+        </div>
+    </div>
+    
+    <script>
+        // 樱花飘落效果
+        function createSakura() {
+            const sakura = document.createElement('div');
+            const size = Math.random() * 10 + 5;
+            const positionX = Math.random() * window.innerWidth;
+            
+            sakura.classList.add('sakura');
+            sakura.style.width = `${size}px`;
+            sakura.style.height = `${size}px`;
+            sakura.style.left = `${positionX}px`;
+            sakura.style.top = '-10px';
+            sakura.style.opacity = Math.random() * 0.6 + 0.4;
+            sakura.style.animationDuration = `${Math.random() * 5 + 5}s`;
+            
+            document.body.appendChild(sakura);
+            
+            setTimeout(() => {
+                sakura.remove();
+            }, 10000);
+        }
+        
+        // 每100ms创建一个樱花
+        setInterval(createSakura, 100);
+        
+        // 鼠标环绕樱花效果
+        document.addEventListener('mousemove', (e) => {
+            if (Math.random() > 0.8) {
+                const cursorSakura = document.createElement('div');
+                const size = Math.random() * 8 + 3;
+                
+                cursorSakura.classList.add('cursor-sakura');
+                cursorSakura.style.width = `${size}px`;
+                cursorSakura.style.height = `${size}px`;
+                cursorSakura.style.left = `${e.clientX}px`;
+                cursorSakura.style.top = `${e.clientY}px`;
+                cursorSakura.style.opacity = Math.random() * 0.6 + 0.4;
+                
+                document.body.appendChild(cursorSakura);
+                
+                // 樱花环绕鼠标的动画
+                const angle = Math.random() * Math.PI * 2;
+                const distance = Math.random() * 100 + 50;
+                const duration = Math.random() * 2 + 1;
+                
+                cursorSakura.animate([
+                    { transform: `translate(0, 0)` },
+                    { transform: `translate(${Math.cos(angle) * distance}px, ${Math.sin(angle) * distance}px)`, opacity: 0 }
+                ], {
+                    duration: duration * 1000,
+                    easing: 'ease-out'
+                });
+                
+                setTimeout(() => {
+                    cursorSakura.remove();
+                }, duration * 1000);
+            }
+        });
+    </script>
+</body>
+</html>
